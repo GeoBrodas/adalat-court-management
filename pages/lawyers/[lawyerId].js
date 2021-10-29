@@ -3,19 +3,12 @@ import {
   getAllLawyerProfiles,
   getLawyerId,
 } from '@/helpers/db-utils';
-
+import LawyerDetails from '@/components/LawyerDetails';
 function LawyerProfile(props) {
   const { profile } = props;
   const parsedProfile = JSON.parse(profile);
 
-  return (
-    <div className="grid place-content-center">
-      <p>{parsedProfile.name}</p>
-      <p>{parsedProfile.bar_council_id}</p>
-      <p>{parsedProfile.dob}</p>
-      <p>{parsedProfile.age}</p>
-    </div>
-  );
+  return <LawyerDetails lawyer={parsedProfile} />;
 }
 
 export async function getStaticProps(context) {

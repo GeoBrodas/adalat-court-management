@@ -9,31 +9,6 @@ function EditProfile() {
                 <h4 className="w-full text-3xl font-bold">Edit Profile</h4>
                 <div className="relative w-full mt-10 space-y-8">
                   <div className="relative">
-                    <span className="font-medium text-gray-900">
-                      Account Type
-                    </span>
-                    <div className="mt-2">
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name="accountType"
-                          value="client"
-                        />
-                        <span className="ml-2">Client</span>
-                      </label>
-                      <label className="inline-flex items-center ml-6">
-                        <input
-                          type="radio"
-                          className="form-radio"
-                          name="accountType"
-                          value="lawyer"
-                        />
-                        <span className="ml-2">Lawyer</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="relative">
                     <label For="" className="font-medium text-gray-900">
                       First Name
                     </label>
@@ -75,7 +50,7 @@ function EditProfile() {
                   </div>
                   <div className="relative">
                     <label For="" className="font-medium text-gray-900">
-                      Password
+                      Change Password
                     </label>
                     <input
                       type="password"
@@ -85,26 +60,31 @@ function EditProfile() {
                   </div>
                   <div className="relative">
                     <label For="" className="font-medium text-gray-900">
-                      Repeat Password
+                      Address
                     </label>
                     <input
-                      type="password"
+                      type="text"
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
-                      placeholder="Password"
+                      placeholder="Enter Your Address"
                     />
                   </div>
+                  <div className="relative">
+                    <label For="" className="font-medium text-gray-900">
+                      Mobile
+                    </label>
+                    <input
+                      type="text"
+                      className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                      placeholder="Enter Your Mobile number"
+                    />
+                  </div>
+
                   <div className="relative">
                     <a
                       href="#_"
                       className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
                     >
-                      Create Account
-                    </a>
-                    <a
-                      href="#_"
-                      className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
-                    >
-                      Sign up with Google
+                      Save Changes
                     </a>
                   </div>
                 </div>

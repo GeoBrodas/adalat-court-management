@@ -8,7 +8,7 @@ function Dashboard(props) {
 
   return (
     <div>
-      Dashbard: {props.session.user.name}
+      Dashbard: {props.session.user.name || props.session.user.email}
       <button className="bg-gray-100 rounded-sm p-2 ml-4" onClick={signOut}>
         SignOut
       </button>
