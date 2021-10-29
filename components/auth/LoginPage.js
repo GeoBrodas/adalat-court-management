@@ -1,6 +1,6 @@
-import { signIn } from 'next-auth/client';
+import { signin, signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 function LoginPage() {
   const router = useRouter();
@@ -25,7 +25,7 @@ function LoginPage() {
     console.log(result.error);
 
     if (!result.error) {
-      router.replace('/profile');
+      router.replace('/dashboard');
     }
   }
 
@@ -77,12 +77,13 @@ function LoginPage() {
           </div>
         </div>
       </form>
-      <a
+      <button
+        onClick={signin}
         href="#_"
         className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
       >
         Login with Google
-      </a>
+      </button>
     </section>
   );
 }

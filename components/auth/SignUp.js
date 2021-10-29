@@ -14,8 +14,6 @@ function SignUp() {
 
   return (
     <Fragment>
-      <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-
       {/* Switch forms */}
       {!isLogin ? <SignUpPage /> : <LoginPage />}
 

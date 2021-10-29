@@ -1,10 +1,11 @@
 import { hashPassword } from '@/helpers/auth-utils';
-import { db } from 'firebase-config';
+import { connectToDatabase } from '@/helpers/db-utils';
 
 async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body;
     const { email, password, firstName, lastName } = data;
+
     // server side validation
     if (
       !email ||
@@ -19,13 +20,16 @@ async function handler(req, res) {
       return;
     }
 
-    //checks if user already exists from firebase
-    const existingUserRef = db.collection('users').doc(email);
-    const existingUser = await existingUserRef.get();
+    // connect database
+    const client = await connectToDatabase();
 
-    // check if user exists
-    if (!existingUser.exists) {
+    const db = client.db();
+
+    //checks if user already exists from MongoDb
+    const existingUser = await db.collection('users').findOne({ email: email });
+    if (existingUser) {
       res.status(422).json({ message: 'User already exists!' });
+      client.close();
       return;
     }
 
@@ -33,14 +37,15 @@ async function handler(req, res) {
     const hashedPassword = await hashPassword(password);
 
     // create user
-    const result = db.collection('users').add({
+    const result = await db.collection('users').insertOne({
       email: email,
       password: hashedPassword,
-      firstName: firstName,
-      lastName: lastName,
+      firstName,
+      lastName,
     });
 
     res.status(201).json({ message: 'Created User!!', result });
+    client.close();
   }
 }
 

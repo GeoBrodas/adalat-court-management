@@ -1,4 +1,5 @@
-import { db } from 'firebase-config';
+import { verifyPassword } from '@/helpers/auth-utils';
+import { connectToDatabase } from '@/helpers/db-utils';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
@@ -9,27 +10,35 @@ export default NextAuth({
   providers: [
     Providers.Credentials({
       async authorize(credentials) {
-        const recievedEmail = credentials.email;
-        const usersCollection = db.collection('users').doc(recievedEmail);
-        const user = await usersCollection.get();
+        const client = await connectToDatabase();
 
-        if (!user.exists) {
+        const usersCollection = client.db().collection('users');
+
+        // find user if exists
+        const user = await usersCollection.findOne({
+          email: credentials.email,
+        });
+
+        if (!user) {
+          client.close();
           throw new Error('No user found!');
         }
 
-        console.log(user.data());
-
+        // compare passwords
         const isValid = await verifyPassword(
           credentials.password,
-          user.data().password
+          user.password
         );
 
         if (!isValid) {
+          client.close();
           throw new Error('Invalid password!');
         }
 
+        client.close();
+
         return {
-          email: user.data().email,
+          email: user.email,
         };
       },
     }),

@@ -1,3 +1,4 @@
+import { signin } from 'next-auth/client';
 import { useRef, useState } from 'react';
 
 async function createUser(email, password, firstName, lastName) {
@@ -134,12 +135,13 @@ function SignUpPage(props) {
       {isInvalid && <p>Please enter valid information!</p>}
 
       {/* Google Provider */}
-      <a
+      <button
+        onClick={signin}
         href="#_"
         className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
       >
         Sign up with Google
-      </a>
+      </button>
     </section>
   );
 }

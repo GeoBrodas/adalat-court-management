@@ -1,7 +1,7 @@
 function HomePage() {
   return (
     <>
-      <nav className="bg-gray-100">
+      {/* <nav className="bg-gray-100">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between">
             <div className="flex space-x-4">
@@ -91,7 +91,7 @@ function HomePage() {
             Signup
           </a>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="py-32 text-center">
         <h2 className="font-extrabold text-4xl">Content goes here</h2>

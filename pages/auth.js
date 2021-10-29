@@ -1,28 +1,26 @@
 import SignUp from '@/components/auth/SignUp';
 import { getSession } from 'next-auth/client';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 function SignUpPage() {
-  // client side protection ( less preferred )
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
+  return <SignUp />;
+}
 
-  useEffect(() => {
-    getSession().then((session) => {
-      if (session) {
-        router.replace('/');
-      } else {
-        setLoading(false);
-      }
-    });
-  }, [router]);
+export async function getServerSideProps(context) {
+  const session = await getSession({ req: context.req });
+  // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
 
-  if (loading) {
-    return <p>Loading...</p>;
+  if (session) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false, // if we want to permanently redirect to auth page or not ?
+      },
+    };
   }
 
-  return <SignUp />;
+  return {
+    props: {},
+  };
 }
 
 export default SignUpPage;

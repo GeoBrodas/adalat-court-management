@@ -1,7 +1,23 @@
-import { getSession } from 'next-auth/client';
+import Feed from '@/components/Feed';
+import FeedHeader from '@/components/FeedHeader';
+import { getSession, signOut, useSession } from 'next-auth/client';
 
 function Dashboard(props) {
-  return <div>Welcome {props.session.name}</div>;
+  const { session } = props;
+  // console.log(session);
+
+  return (
+    <div>
+      Dashbard: {props.session.user.name}
+      <button className="bg-gray-100 rounded-sm p-2 ml-4" onClick={signOut}>
+        SignOut
+      </button>
+      {/* Section for add clients */}
+      <FeedHeader />
+      {/* Table of clients */}
+      <Feed />
+    </div>
+  );
 }
 
 export async function getServerSideProps(context) {
