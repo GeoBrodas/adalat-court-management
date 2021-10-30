@@ -12,10 +12,7 @@ function Layout(props) {
             <div className="flex space-x-4">
               {/* logo  */}
               <div>
-                <a
-                  href="#"
-                  className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
-                >
+                <a className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                   <svg
                     className="h-6 w-6 text-blue-700"
                     xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +45,7 @@ function Layout(props) {
             </div>
 
             {/* secondary nav  */}
-            {session && (
+            {/* {session && (
               <div className="hidden md:flex items-center space-x-1">
                 <Link href="/dashboard/Userprofile">
                   <a className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
@@ -56,7 +53,7 @@ function Layout(props) {
                   </a>
                 </Link>
               </div>
-            )}
+            )} */}
 
             {session && (
               <div

@@ -5,9 +5,11 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Adalat</title>
-        <meta name="description" content="The home-page of Adalat" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Adaalat</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
       </Head>
 
       <HomePage />

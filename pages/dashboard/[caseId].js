@@ -19,10 +19,8 @@ function CaseDetailsPage(props) {
 
     const data = await response.json();
     console.log(data);
+    router.replace('/dashboard');
 
-    // if (response.ok) {
-    //   router.replace('/dashboard');
-    // }
     return data;
   }
 

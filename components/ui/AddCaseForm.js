@@ -1,8 +1,11 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 } from 'uuid';
 
 export default function AddCaseForm(props) {
+  const router = useRouter();
+
   const { names } = props;
   const {
     register,
@@ -27,6 +30,7 @@ export default function AddCaseForm(props) {
 
     console.log(parse);
     reset();
+    router.replace('/dashboard');
     // console.log(data);
   };
   console.log(errors);
