@@ -13,6 +13,7 @@ async function handler(req, res) {
       Postal_Code,
       Hearing_Date,
       Court_Type,
+      uid,
     } = data;
 
     // console.log(data);
@@ -30,6 +31,7 @@ async function handler(req, res) {
       Postal_Code,
       Hearing_Date,
       Court_Type,
+      uid,
     });
 
     res.status(201).json({ message: 'Successfully created case!', result });

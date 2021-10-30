@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { v4 } from 'uuid';
 
 export default function AddCaseForm(props) {
   const { names } = props;
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
@@ -14,7 +16,7 @@ export default function AddCaseForm(props) {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, uid: v4() }),
     });
 
     const parse = await response.json();
@@ -24,7 +26,7 @@ export default function AddCaseForm(props) {
     }
 
     console.log(parse);
-
+    reset();
     // console.log(data);
   };
   console.log(errors);

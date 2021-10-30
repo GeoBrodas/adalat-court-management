@@ -1,9 +1,11 @@
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/FeedHeader';
+import { connectToDatabase } from '@/helpers/db-utils';
 import { getSession, signOut, useSession } from 'next-auth/client';
 
 function Dashboard(props) {
-  const { session } = props;
+  const { cases } = props;
+  const parsedData = JSON.parse(cases);
   // console.log(session);
 
   return (
@@ -15,7 +17,7 @@ function Dashboard(props) {
       {/* Section for add clients */}
       <FeedHeader />
       {/* Table of clients */}
-      <Feed />
+      <Feed cases={parsedData} />
     </div>
   );
 }
@@ -33,9 +35,15 @@ export async function getServerSideProps(context) {
     };
   }
 
+  const client = await connectToDatabase();
+  const db = client.db();
+  const response = await db.collection('cases').find().toArray();
+  const stringifiedData = JSON.stringify(response);
+
   return {
     props: {
       session,
+      cases: stringifiedData,
     },
   };
 }
