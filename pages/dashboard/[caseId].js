@@ -3,6 +3,7 @@ import { connectToDatabase } from '@/helpers/db-utils';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { getSession } from 'next-auth/client';
 
 function CaseDetailsPage(props) {
   const parsedFees = JSON.parse(props.fees);
@@ -46,6 +47,18 @@ function CaseDetailsPage(props) {
 
 export async function getServerSideProps(context) {
   const caseId = context.params.caseId;
+
+  const session = await getSession({ req: context.req });
+  // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth',
+        permanent: false, // if we want to permanently redirect to auth page or not ?
+      },
+    };
+  }
 
   const client = await connectToDatabase();
   const db = client.db();
