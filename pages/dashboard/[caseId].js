@@ -1,6 +1,8 @@
 import DisplayCaseDetails from '@/components/DisplayCaseDetails';
 import { connectToDatabase } from '@/helpers/db-utils';
+
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 function CaseDetailsPage(props) {
   const parsedFees = JSON.parse(props.fees);
@@ -25,11 +27,20 @@ function CaseDetailsPage(props) {
   }
 
   return (
-    <DisplayCaseDetails
-      caseDetail={parsedData}
-      delete={deleteHandler}
-      fees={parsedFees.fees}
-    />
+    <>
+      <Head>
+        <title>Case No : {parsedData.uid}</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
+      <DisplayCaseDetails
+        caseDetail={parsedData}
+        delete={deleteHandler}
+        fees={parsedFees.fees}
+      />
+    </>
   );
 }
 

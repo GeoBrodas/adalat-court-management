@@ -2,6 +2,8 @@ import { signin, signIn } from 'next-auth/client';
 import { useRouter } from 'next/router';
 import { useRef } from 'react';
 
+import toast from 'react-hot-toast';
+
 function LoginPage() {
   const router = useRouter();
 
@@ -10,6 +12,7 @@ function LoginPage() {
 
   async function loginHandler(event) {
     event.preventDefault();
+    const toastId = toast.loading('Loggin In...');
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
@@ -23,9 +26,14 @@ function LoginPage() {
 
     console.log(result);
     console.log(result.error);
+    if (result.error) {
+      toast.error(result.error);
+    }
 
     if (!result.error) {
+      toast.dismiss(toastId);
       router.replace('/dashboard');
+      toast.success('Welcome!');
     }
   }
 
@@ -40,7 +48,7 @@ function LoginPage() {
             >
               <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
                 <h4 className="w-full text-3xl font-bold">Login</h4>
-                <div className="relative w-full mt-10 space-y-8">
+                <div className="relative w-full mt-5 space-y-8">
                   <div className="relative">
                     <label className="font-medium text-gray-900">Email</label>
                     <input
@@ -68,7 +76,7 @@ function LoginPage() {
                       href="#_"
                       className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
                     >
-                      Create Account
+                      Login
                     </button>
                   </div>
                 </div>
@@ -77,13 +85,17 @@ function LoginPage() {
           </div>
         </div>
       </form>
-      <button
-        onClick={signin}
-        href="#_"
-        className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
-      >
-        Login with Google
-      </button>
+      <hr className="border-blueGray-300" />
+      <div className="flex  items-center justify-center ">
+        <div className="relative w-3/12 ">
+          <button
+            onClick={signin}
+            className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
+          >
+            Login with Google
+          </button>
+        </div>
+      </div>
     </section>
   );
 }

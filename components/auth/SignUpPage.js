@@ -1,6 +1,8 @@
 import { signin } from 'next-auth/client';
 import { useRef, useState } from 'react';
 
+import toast from 'react-hot-toast';
+
 async function createUser(email, password, firstName, lastName) {
   // fetch request
   const response = await fetch('/api/auth/signup', {
@@ -28,6 +30,7 @@ function SignUpPage(props) {
 
   async function submitHandler(e) {
     e.preventDefault();
+    const toastId = toast.loading('Processing...');
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
@@ -55,6 +58,8 @@ function SignUpPage(props) {
         enteredLastName
       );
       console.log(response);
+      toast.dismiss(toastId);
+      toast.success("You're in 🤘🏼");
     } catch (error) {
       console.log(error);
     }

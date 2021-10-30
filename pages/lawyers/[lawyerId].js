@@ -4,11 +4,26 @@ import {
   getLawyerId,
 } from '@/helpers/db-utils';
 import LawyerDetails from '@/components/LawyerDetails';
+
+import Head from 'next/head';
+
 function LawyerProfile(props) {
   const { profile } = props;
   const parsedProfile = JSON.parse(profile);
+  const lawyerName = parsedProfile.name;
 
-  return <LawyerDetails lawyer={parsedProfile} />;
+  return (
+    <>
+      <Head>
+        <title>Profile: {lawyerName}</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
+      <LawyerDetails lawyer={parsedProfile} />
+    </>
+  );
 }
 
 export async function getStaticProps(context) {

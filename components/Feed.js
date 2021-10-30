@@ -1,6 +1,8 @@
+import { useSession } from 'next-auth/client';
 import FeedRow from './FeedRow';
 
 function Feed({ cases }) {
+  const [session] = useSession();
   return (
     <section>
       {cases.length === 0 ? (
@@ -29,9 +31,11 @@ function Feed({ cases }) {
             </thead>
             <tbody className="block md:table-row-group">
               {/* Mapped data */}
-              {cases.map((item) => (
-                <FeedRow key={item._id} case={item} />
-              ))}
+              {cases
+                .filter((item) => item.email === session.user.email)
+                .map((item, index) => (
+                  <FeedRow key={item._id} case={item} number={index} />
+                ))}
             </tbody>
           </table>
         </div>

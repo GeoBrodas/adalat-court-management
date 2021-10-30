@@ -4,7 +4,8 @@ function FeedRow(props) {
   return (
     <tr className="bg-gray-300 border border-grey-500 md:border-none block md:table-row">
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
-        <span className="inline-block w-1/3 md:hidden font-bold">Case No</span>1
+        <span className="inline-block w-1/3 md:hidden font-bold">Case No</span>
+        {props.number + 1}
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         <span className="inline-block w-1/3 md:hidden font-bold">

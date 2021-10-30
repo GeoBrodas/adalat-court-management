@@ -3,6 +3,8 @@ import FeedHeader from '@/components/FeedHeader';
 import { connectToDatabase } from '@/helpers/db-utils';
 import { getSession, signOut, useSession } from 'next-auth/client';
 
+import Head from 'next/head';
+
 function Dashboard(props) {
   const { cases } = props;
   const parsedData = JSON.parse(cases);
@@ -10,10 +12,16 @@ function Dashboard(props) {
 
   return (
     <div>
-      Dashbard: {props.session.user.name || props.session.user.email}
-      <button className="bg-gray-100 rounded-sm p-2 ml-4" onClick={signOut}>
-        SignOut
-      </button>
+      <Head>
+        <title>Dashboard: {props.session.user.email}</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
+      <div className="flex items-center justify-center mt-20 text-3xl">
+        Welcome : {props.session.user.name || props.session.user.email}
+      </div>
       {/* Section for add clients */}
       <FeedHeader />
       {/* Table of clients */}

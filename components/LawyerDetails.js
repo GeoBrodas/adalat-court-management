@@ -6,7 +6,7 @@ function LawyerDetails({ lawyer }) {
       <div className="bg-gray-100 p-10 md:w-3/4 lg:w-1/2 mx-auto">
         <div className="flex items-center mb-5">
           <label
-            For="title"
+            htmlFor="title"
             className="items-center mr-6 text-right font-black text-gray-600 text-2xl"
           >
             LAWYER DETAILS
@@ -15,7 +15,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="bar_id"
+            htmlFor="bar_id"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Bar Council ID:
@@ -27,7 +27,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="company_name"
+            htmlFor="company_name"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Name:
@@ -39,7 +39,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="desc"
+            htmlFor="desc"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Preferred case type:
@@ -51,7 +51,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="years_of_exp"
+            htmlFor="years_of_exp"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Years Of Experience:
@@ -63,7 +63,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="fees"
+            htmlFor="fees"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Fees(Rs):
@@ -75,7 +75,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="age"
+            htmlFor="age"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Age:
@@ -87,7 +87,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="fee_structure"
+            htmlFor="fee_structure"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Fee Structure:
@@ -99,7 +99,7 @@ function LawyerDetails({ lawyer }) {
 
         <div className="flex items-center mb-5">
           <label
-            For="dob"
+            htmlFor="dob"
             className="inline-block w-32 mr-6 text-right font-bold text-gray-600"
           >
             Date of Birth:

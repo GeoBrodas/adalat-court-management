@@ -2,12 +2,21 @@ import LawyerCard from '@/components/ui/LawyerCard';
 import { connectToDatabase, getAllLawyerProfiles } from '@/helpers/db-utils';
 import Link from 'next/link';
 
+import Head from 'next/head';
+
 function LawyersPage(props) {
   const { profiles } = props;
   const parsedProfiles = JSON.parse(profiles);
 
   return (
     <section>
+      <Head>
+        <title>Lawyers List</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
       <div className="max-w-6xl mx-auto px-4">
         <h4 className="w-full text-3xl font-bold mt-8 mb-4">List of Lawyers</h4>
         <table className="min-w-full border-collapse block md:table">

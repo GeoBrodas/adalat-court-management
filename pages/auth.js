@@ -1,8 +1,21 @@
 import SignUp from '@/components/auth/SignUp';
 import { getSession } from 'next-auth/client';
 
+import Head from 'next/head';
+
 function SignUpPage() {
-  return <SignUp />;
+  return (
+    <>
+      <Head>
+        <title>SignUp!</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
+      <SignUp />
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {

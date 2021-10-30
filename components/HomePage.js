@@ -16,6 +16,7 @@ function HomePage() {
                     Court Case Management System:
                   </span>
                   <span className="block text-indigo-700 xl:inline">
+                    {' '}
                     Adaalat
                   </span>
                 </h1>

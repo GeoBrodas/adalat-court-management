@@ -2,10 +2,23 @@ import AddCase from '@/components/AddCase';
 import { connectToDatabase, getAllLawyerProfiles } from '@/helpers/db-utils';
 import { getSession } from 'next-auth/client';
 
+import Head from 'next/head';
+
 function AddCases(props) {
   const { lawyerNames } = props;
   const parsedData = JSON.parse(lawyerNames);
-  return <AddCase names={parsedData} />;
+  return (
+    <>
+      <Head>
+        <title>Register Case</title>
+        <meta
+          name="description"
+          content="Adaalat: One step Solution to managing court hearings"
+        />
+      </Head>
+      <AddCase names={parsedData} />
+    </>
+  );
 }
 
 export async function getServerSideProps(context) {
