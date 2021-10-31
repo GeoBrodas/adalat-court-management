@@ -1,0 +1,32 @@
+{
+  "theme_color": "#a982f2",
+  "background_color": "#eac1ef",
+  "display": "standalone",
+  "scope": "/dashboard",
+  "start_url": "/dashboard",
+  "name": "Adaalat - A court management system, built to seamlessly help clients to register and withdraw court hearings",
+  "short_name": "Adaalat",
+  "description": "A court management system to add, register case, withdraw theme seamlessly.",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

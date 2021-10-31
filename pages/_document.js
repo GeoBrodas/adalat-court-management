@@ -27,7 +27,10 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/static/favicon-16x16.png"
           />
-          {/* <link rel="manifest" href="/site.webmanifest" /> */}
+          {/* PWA */}
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/icon.png" />
+          <meta name="theme-color" content="#fff" />
         </Head>
         <body>
           <Main />

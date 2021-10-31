@@ -27,6 +27,7 @@ function LoginPage() {
     console.log(result);
     console.log(result.error);
     if (result.error) {
+      toast.dismiss(toastId);
       toast.error(result.error);
     }
 
