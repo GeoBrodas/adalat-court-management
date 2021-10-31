@@ -4,7 +4,7 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Adaalat - A court management system, built to seamlessly help clients to register and withdraw court hearings",
+  "name": "Adaalat - A court management system",
   "short_name": "Adaalat",
   "description": "A court management system to add, register case, withdraw theme seamlessly.",
   "icons": [
