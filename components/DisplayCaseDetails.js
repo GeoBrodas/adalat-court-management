@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 
 function DisplayCaseDetails(props) {

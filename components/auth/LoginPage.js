@@ -12,10 +12,15 @@ function LoginPage() {
 
   async function loginHandler(event) {
     event.preventDefault();
-    const toastId = toast.loading('Loggin In...');
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+
+    if (!enteredEmail || !enteredPassword) {
+      return;
+    }
+
+    const toastId = toast.loading('Loggin In...');
 
     // never gets rejected, always an object
     const result = await signIn('credentials', {

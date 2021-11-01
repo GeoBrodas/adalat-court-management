@@ -4,13 +4,21 @@ import { connectToDatabase } from '@/helpers/db-utils';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { getSession } from 'next-auth/client';
+import toast from 'react-hot-toast';
 
 function CaseDetailsPage(props) {
   const parsedFees = JSON.parse(props.fees);
   const parsedData = JSON.parse(props.caseDetail);
 
+  // if unauthorized - show toast
+  if (props.message) {
+    const parsedMessage = JSON.parse(props.message);
+    toast.error(parsedMessage);
+  }
+
   const router = useRouter();
 
+  // delete case
   async function deleteHandler(uid) {
     const response = await fetch('/api/case/deletecase', {
       method: 'POST',
@@ -66,6 +74,18 @@ export async function getServerSideProps(context) {
   const stringifiedData = JSON.stringify(response);
 
   const parsedData = JSON.parse(stringifiedData);
+
+  // if the user is logged in but tries acceses unauthorized content of any other user
+  if (session.user.email !== parsedData.email) {
+    const message = 'Unauthorized access';
+    return {
+      props: { message: message },
+      redirect: {
+        destination: '/dashboard',
+        permanent: false, // if we want to permanently redirect to auth page or not ?
+      },
+    };
+  }
 
   const feeResponse = await db
     .collection('lawyersList')
