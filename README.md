@@ -2,6 +2,8 @@
 
 # Adaalat: A court management system
 
+![app-preview](https://res.cloudinary.com/dapafwlvo/image/upload/v1635735765/image1_kafi3l.png)
+
 A court case management software that has facility to record information like adding a case,
 adding lawyers (have facility select from existing list of lawyers), add invoice for
 for each hearing and for different heads under which lawyers charge the clients.
