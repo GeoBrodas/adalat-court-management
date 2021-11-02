@@ -7,6 +7,7 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
     runtimeCaching,
+    disable: process.env.NODE_ENV === 'development',
   },
   images: {
     domains: ['media-exp1.licdn.com', 'instagram.fpnq10-1.fna.fbcdn.net'],

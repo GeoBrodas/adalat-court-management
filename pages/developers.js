@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 
 function MeetTheDevelopersPage() {
   const saifUrl =
@@ -19,6 +20,34 @@ function MeetTheDevelopersPage() {
           name="description"
           content="Meet the minds behind this open-source project!"
         />
+
+        {/* Meta tags og */}
+        <meta property="og:title" content="Meet the developers!" />
+        <meta
+          property="og:description"
+          content="The minds behind Adaalat- A court management system to register court hearings."
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dapafwlvo/image/upload/v1635871194/developers_u12bmd.png"
+        />
+        <meta
+          property="og:url"
+          content="https://adaalat.vercel.app/developers"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        {/* Twitter */}
+        <meta name="twitter:title" content="Meet the developers!" />
+        <meta
+          name="twitter:description"
+          content="The minds behind Adaalat- A court management system to register court hearings."
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dapafwlvo/image/upload/v1635871194/developers_u12bmd.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
@@ -38,51 +67,61 @@ function MeetTheDevelopersPage() {
               Georgey V B
             </h2>
             <p className="leading-relaxed text-base">
-              Full-Stack and JamStack developer
+              Full-Stack and JamStack developer.
             </p>
-            <a className="mt-3 text-pink-500 inline-flex items-center">
-              Learn More
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
+            <Link href="https://www.linkedin.com/in/georgeyvb/">
+              <a
+                target="_blank"
+                className="mt-3 text-pink-500 inline-flex items-center"
               >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+                Learn More
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </Link>
           </div>
         </div>
         <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-              The Catalyzer
+              Amisha Naik
             </h2>
             <p className="leading-relaxed text-base">
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-              taxidermy. Gastropub indxgo juice poutine.
+              An aspiring software developer. Currently pursuing bachelor degree
+              in Computer engineering.
             </p>
-            <a className="mt-3 text-pink-500 inline-flex items-center">
-              Learn More
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
+            <Link href="https://www.linkedin.com/in/amisha-naik-b2a633191">
+              <a
+                target="_blank"
+                className="mt-3 text-pink-500 inline-flex items-center"
               >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+                Learn More
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </Link>
           </div>
           <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 flex-shrink-0">
             <Image
-              src={saifUrl}
+              src={amishaUrl}
               className="rounded-full"
               layout="intrinsic"
               width="200"
@@ -94,7 +133,7 @@ function MeetTheDevelopersPage() {
         <div className="flex items-center lg:w-3/5 mx-auto sm:flex-row flex-col">
           <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 flex-shrink-0">
             <Image
-              src={amishaUrl}
+              src={saifUrl}
               className="rounded-full"
               layout="intrinsic"
               width="200"
@@ -104,26 +143,30 @@ function MeetTheDevelopersPage() {
           </div>
           <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
             <h2 className="text-gray-900 text-lg title-font font-medium mb-2">
-              The 400 Blows
+              Saif Farooqui
             </h2>
             <p className="leading-relaxed text-base">
-              Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-              taxidermy. Gastropub indxgo juice poutine.
+              Computer Science student and aspiring software developer.
             </p>
-            <a className="mt-3 text-pink-500 inline-flex items-center">
-              Learn More
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
+            <Link href="https://www.linkedin.com/in/saif-farooqui">
+              <a
+                target="_blank"
+                className="mt-3 text-pink-500 inline-flex items-center"
               >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
+                Learn More
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </Link>
           </div>
         </div>
       </div>
