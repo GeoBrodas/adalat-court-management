@@ -8,4 +8,7 @@ module.exports = withPWA({
     skipWaiting: true,
     runtimeCaching,
   },
+  images: {
+    domains: ['media-exp1.licdn.com', 'instagram.fpnq10-1.fna.fbcdn.net'],
+  },
 });
