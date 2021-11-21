@@ -11,6 +11,10 @@ module.exports = withPWA({
     disable: process.env.NODE_ENV === 'development',
   },
   images: {
-    domains: ['media-exp1.licdn.com', 'instagram.fpnq10-1.fna.fbcdn.net'],
+    domains: [
+      'media-exp1.licdn.com',
+      'instagram.fpnq10-1.fna.fbcdn.net',
+      'scontent-bom1-2.cdninstagram.com',
+    ],
   },
 });
